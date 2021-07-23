@@ -1,0 +1,27 @@
+{
+  "name": "my_next_trip",
+  "version": "1.0.0",
+  "description": "This application shows the flight prices. the user can search a flight for a specific destination, and if they want to be notified when the price change, they can save the search. When there is a change in the price of saved research the user will receive a notification mail.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "mocha test --timeout 10000"
+  },
+  "author": "Andrea Agosta",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^5.13.3",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.0.2",
+    "nyc": "^15.1.0"
+  }
+}
