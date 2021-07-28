@@ -119,4 +119,4 @@ dist
 {"mode":"full","isActive":false}
 
 .DS_Store
-.idea
+.idea/
