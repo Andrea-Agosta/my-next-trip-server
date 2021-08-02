@@ -6,6 +6,9 @@ const passport = require("passport");
 const User = require("./db/models/user").User;
 const registrationController = require("./controllers/registrationController");
 const loginController = require("./controllers/loginController");
+// const searchFlightController = require("./controllers/searchFlightController");
+const countriesCurrenciesUpdate = require("./jobs/countriesCurrenciesUpdate");
+const cron = require("node-cron");
 
 // INITIALIZATION
 const app = express();
@@ -30,10 +33,17 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// SCHEDULE JOB
+countriesCurrenciesUpdate();
+
 app.get("/", function(req, res){
     res.send("Hello");
     console.log("home");
 });
+
+app.get("/search", function (req, res){
+    // searchFlightController(req, res);
+})
 
 app.get("/my-flight", function(req, res){
     if (req.isAuthenticated()){

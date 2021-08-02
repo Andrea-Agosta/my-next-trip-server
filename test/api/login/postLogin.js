@@ -1,3 +1,7 @@
+/* -----------------------------------------------------------
+    Researching way to mock/stub passport authentication
+ ------------------------------------------------------------ */
+
 // process.env.NODE_ENV = "test";
 //
 // const expect = require("chai").expect;
