@@ -45,11 +45,7 @@ passport.deserializeUser(User.deserializeUser());
 countriesCurrenciesUpdate();
 // placesListUpdate();      AT MOMENT I USE AN EXTERNAL APPLICATION IN PYTHON TO DO THIS
 
-app.get("/", function(req, res){
-    // res.send("Hello");
-    // console.log("home");
-});
-
+// REST CALL FOR SAVE THE CURRENCIES LIST ON DB
 app.get("/currenciesList", function (req, res){
     Currency.find({}, function (err, currencies){
         if (err){
@@ -61,8 +57,8 @@ app.get("/currenciesList", function (req, res){
     });
 });
 
+// REST CALL FOR SAVE THE COUNTRIES LIST ON DB
 app.get("/countriesList", function (req, res){
-
     Country.find({}, function (err, countries){
         if (err){
             console.log(err);
@@ -71,11 +67,10 @@ app.get("/countriesList", function (req, res){
             res.json(countries);
         }
     });
-
 });
 
+// REST CALL FOR SAVE THE PLACES LIST ON DB
 app.get("/placesList", function (req, res){
-
     Place.find({}, function (err, countries){
         if (err){
             console.log(err);
@@ -84,16 +79,17 @@ app.get("/placesList", function (req, res){
             res.json(countries);
         }
     });
-
 });
 
-app.get("/search", async function (req, res){
+// SEARCH FLIGHTS
+app.get("/flights", async function (req, res){
     searchFlightController(req, res, callbackFlight =>{
         res.json(callbackFlight);
     });
 });
 
-app.get("/my-flight", function(req, res){
+// LIST OF FLIGHTS SAVED FROM USER
+app.get("/my-searches", function(req, res){
     if (req.isAuthenticated()){
         res.send("Welcome to your data page!");
     } else {

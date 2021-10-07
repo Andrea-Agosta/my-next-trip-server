@@ -7,7 +7,6 @@ function searchFlightController(req, res, callbackFlight) {
     let toCode = "";
 
     setPlace(req,res, callback => {
-        console.log("callback: ",callback);
         fromCode = callback[0];
         toCode = callback[1];
 
