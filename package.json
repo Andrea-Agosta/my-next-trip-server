@@ -5,23 +5,26 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "mocha test --timeout 10000"
+    "test": "mocha --timeout 20000 --recursive --exit"
   },
   "author": "Andrea Agosta",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.22.0",
     "body-parser": "^1.19.0",
+    "chai": "^4.3.4",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "mocha": "^9.0.2",
+    "mockgoose": "^8.0.4",
     "mongoose": "^5.13.3",
+    "node-cron": "^3.0.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^6.1.0"
-  },
-  "devDependencies": {
-    "chai": "^4.3.4",
-    "mocha": "^9.0.2",
-    "nyc": "^15.1.0"
+    "passport-local-mongoose": "^6.1.0",
+    "sinon": "^11.1.2",
+    "supertest": "^6.1.4"
   }
 }
