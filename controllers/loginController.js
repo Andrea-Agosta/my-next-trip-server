@@ -1,4 +1,4 @@
-const User = require("../db/models/user").User;
+const User = require("../database/models/user").User;
 
 function loginController(req,res, passport){
     const user = new User ({

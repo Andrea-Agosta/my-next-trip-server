@@ -1,4 +1,4 @@
-const {Place} = require("../db/models/places");
+const {Place} = require("../../database/models/old_model/places");
 const axios = require("axios");
 
 

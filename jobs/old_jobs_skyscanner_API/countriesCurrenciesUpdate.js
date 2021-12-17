@@ -1,6 +1,6 @@
 const cron = require('node-cron');
-const currencies = require("../flightClient/currenciesList");
-const countryList = require("../flightClient/countryList");
+const currencies = require("../../flightClient/OLD_skyscanner_API(not_working)/currenciesList");
+const countryList = require("../../flightClient/OLD_skyscanner_API(not_working)/countryList");
 
 
 function countriesCurrenciesUpdate(){

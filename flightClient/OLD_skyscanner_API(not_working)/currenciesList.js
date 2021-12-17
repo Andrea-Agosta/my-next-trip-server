@@ -1,5 +1,5 @@
 const http = require("https");
-const {Currency} = require("../db/models/currency");
+const {Currency} = require("../../database/models/old_model/currency");
 
 function currenciesList() {
     const options = {

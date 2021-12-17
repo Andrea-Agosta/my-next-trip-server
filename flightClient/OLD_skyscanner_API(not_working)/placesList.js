@@ -1,6 +1,6 @@
 const http = require("https");
-const {Place} = require("../db/models/places");
-const {Country} = require("../db/models/country");
+const {Place} = require("../../database/models/old_model/places");
+const {Country} = require("../../database/models/old_model/country");
 
 
 // FUNCTION FOR SAVE THE LIST OF PLACES ON DB

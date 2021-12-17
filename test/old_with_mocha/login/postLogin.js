@@ -9,8 +9,8 @@
 // const passport = require('passport');
 // const sinon = require('sinon');
 // const app = require("../../../app.js");
-// const conn = require("../../../db/index.js");
-// const User = require("../../../db/models/user").User;
+// const conn = require("../../../database/index.js");
+// const User = require("../../../database/models/user").User;
 //
 // describe("POST /login", () => {
 //

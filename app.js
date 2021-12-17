@@ -4,16 +4,11 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const passport = require("passport");
 const cors = require('cors');
-const User = require("./db/models/user").User;
+const User = require("./database/models/user").User;
 const registrationController = require("./controllers/registrationController");
 const loginController = require("./controllers/loginController");
 const searchFlightController = require("./controllers/searchFlightController");
-const countriesCurrenciesUpdate = require("./jobs/countriesCurrenciesUpdate");
-// const placesListUpdate = require('./jobs/placesListUpdate');
-const cron = require("node-cron");
-const {Country} = require("./db/models/country");
-const {Currency} = require("./db/models/currency");
-const {Place} = require("./db/models/places");
+const placesListUpdate = require('./jobs/placesListUpdate');
 
 // INITIALIZATION
 const app = express();
@@ -42,50 +37,11 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // SCHEDULE JOB
-countriesCurrenciesUpdate();
-// placesListUpdate();      AT MOMENT I USE AN EXTERNAL APPLICATION IN PYTHON TO DO THIS
-
-// REST CALL FOR SAVE THE CURRENCIES LIST ON DB
-app.get("/currenciesList", function (req, res){
-    Currency.find({}, function (err, currencies){
-        if (err){
-            console.log(err);
-            res.status(400).send("Something goes wrong!, please try again later.");
-        } else {
-            res.json(currencies);
-        }
-    });
-});
-
-// REST CALL FOR SAVE THE COUNTRIES LIST ON DB
-app.get("/countriesList", function (req, res){
-    Country.find({}, function (err, countries){
-        if (err){
-            console.log(err);
-            res.status(400).send("Something goes wrong!, please try again later.");
-        } else {
-            res.json(countries);
-        }
-    });
-});
-
-// REST CALL FOR SAVE THE PLACES LIST ON DB
-app.get("/placesList", function (req, res){
-    Place.find({}, function (err, countries){
-        if (err){
-            console.log(err);
-            res.status(400).send("Something goes wrong!, please try again later.");
-        } else {
-            res.json(countries);
-        }
-    });
-});
+placesListUpdate();
 
 // SEARCH FLIGHTS
-app.get("/flights", async function (req, res){
-    searchFlightController(req, res, callbackFlight =>{
-        res.json(callbackFlight);
-    });
+app.get("/flights/search", async function (req, res){
+    await searchFlightController(req, res);
 });
 
 // LIST OF FLIGHTS SAVED FROM USER

@@ -1,5 +1,5 @@
 const app = require('./app');
-const db = require("./db/index");
+const db = require("./database/database");
 
 const PORT = process.env.PORT || 2000;
 

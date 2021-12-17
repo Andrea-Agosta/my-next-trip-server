@@ -1,5 +1,5 @@
 const http = require("https");
-const {Country} = require("../db/models/country");
+const {Country} = require("../../database/models/old_model/country");
 
 function countryList(){
     const options = {

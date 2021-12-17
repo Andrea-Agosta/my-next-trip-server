@@ -1,30 +1,35 @@
 {
   "name": "my_next_trip",
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "node"
+  },
   "version": "1.0.0",
   "description": "This application shows the flight prices. the user can search a flight for a specific destination, and if they want to be notified when the price change, they can save the search. When there is a change in the price of saved research the user will receive a notification mail.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "mocha --timeout 20000 --recursive --exit"
+    "test": "jest /test --collectCoverage"
   },
   "author": "Andrea Agosta",
   "license": "ISC",
   "dependencies": {
+    "@shelf/jest-mongodb": "^2.1.0",
     "axios": "^0.22.0",
     "body-parser": "^1.19.0",
-    "chai": "^4.3.4",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "mocha": "^9.0.2",
-    "mockgoose": "^8.0.4",
     "mongoose": "^5.13.3",
     "node-cron": "^3.0.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
-    "sinon": "^11.1.2",
-    "supertest": "^6.1.4"
+    "supertest": "^6.1.4",
+    "validatorjs": "^3.22.1"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
   }
 }

@@ -1,4 +1,4 @@
-const User = require("../db/models/user").User;
+const User = require("../database/models/user").User;
 
 function registrationController(req, res, passport){
     let errorMessage = "";
